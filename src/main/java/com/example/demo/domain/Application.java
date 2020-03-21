@@ -1,11 +1,19 @@
 package com.example.demo.domain;
 
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
 import com.sun.istack.NotNull;
 
 public class Application {
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false, updatable = false)
+    private long id;
 	@NotEmpty
     @Size(min=2, max=50)
     private String name;
@@ -22,6 +30,11 @@ public class Application {
 	private String resume;
 	@NotNull
 	private long jobID;
+	
+	public Application() {
+		
+	}
+	
 	public String getName() {
 		return name;
 	}
@@ -76,5 +89,17 @@ public class Application {
 		this.jobID = jobID;
 	}
 	
-	
+	@Override
+    public String toString() {
+        return "Application{" +
+                "id=" + id +
+                ", Name='" + name + '\'' +
+                ", Email='" + email + '\'' +
+                ", Phone='" + phone + '\'' +
+                ", Adress='" + address + '\'' +
+                ", Thoughts On Job ='" + thoughtsOnJob + '\'' +
+                ", Resume='" + resume + '\'' +
+                ", Job ID='" + jobID + '\'' +
+                '}';
+    }
 }
