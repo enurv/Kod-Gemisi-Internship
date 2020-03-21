@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>Jobs</title>
+</head>
+<body>
+<nav role="navigation">
+    <ul>
+        <li><a href="/">Home</a></li>
+    </ul>
+</nav>
+<table>
+    <tr>
+        <th></th>
+        <th>Job Title</th>
+        <th>Job Description</th>
+		<th>Number of People to Get Hired</th>
+        <th>Last Application Date</th>
+    </tr>
+    <tr th:each="job : ${jobs}">
+		<td>
+			<form th:action="@{/jobs/} + ${job.id}" th:method="post">
+				<button type="submit">Apply</button>
+			</form>
+		</td>
+        <td th:text="${job.jobTitle}">Title</td>
+        <td th:text="${job.jobDescription}">Description</td>
+		<td th:text="${job.numHire}">Number of People to Get Hired</td>
+        <td th:text="${job.lastApplicationDate}">Last Application Date</td>
+    </tr>
+</table>
+</body>
+</html>
