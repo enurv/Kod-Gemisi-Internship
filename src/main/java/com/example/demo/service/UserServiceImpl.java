@@ -30,10 +30,7 @@ public class UserServiceImpl implements UserService, UserDetailsService{
 		    }
 	}
 
-	private User getUserByUsername(String username) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 	
 
 }

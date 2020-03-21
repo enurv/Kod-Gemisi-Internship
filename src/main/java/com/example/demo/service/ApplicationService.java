@@ -1,5 +1,9 @@
 package com.example.demo.service;
 
-public class ApplicationService {
+import com.example.demo.domain.Application;
+import com.example.demo.domain.ApplicationFormDTO;
 
+public interface ApplicationService {
+	void addApplication(ApplicationFormDTO form);
+	Iterable<Application> getApplicationByJobId(Long jobID);
 }
