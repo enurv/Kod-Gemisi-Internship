@@ -1,11 +1,11 @@
 package com.example.demo.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.example.demo.domain.Application;
 import com.example.demo.domain.ApplicationFormDTO;
 import com.example.demo.repository.ApplicationRepositoryDAO;
-import com.example.demo.repository.JobRepositoryDAO;
 
 @Service
 public class ApplicationServiceImpl implements ApplicationService {
@@ -25,10 +25,12 @@ public class ApplicationServiceImpl implements ApplicationService {
 		
 	}
 
+
 	@Override
-	public Iterable<Application> getApplicationByJobId(Long jobID) {
-		// TODO Auto-generated method stub
-		return null;
+	public Iterable<Application> findByJobId(Long jobID) {
+		return applicationRepository.findByJobId(jobID);
 	}
+
+	
 
 }
