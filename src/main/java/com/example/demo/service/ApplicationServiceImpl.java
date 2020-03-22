@@ -9,6 +9,7 @@ import com.example.demo.repository.ApplicationRepositoryDAO;
 
 @Service
 public class ApplicationServiceImpl implements ApplicationService {
+	
 	private final ApplicationRepositoryDAO applicationRepository;
 	
 	
@@ -27,9 +28,10 @@ public class ApplicationServiceImpl implements ApplicationService {
 
 
 	@Override
-	public Iterable<Application> findByJobId(Long jobID) {
-		return applicationRepository.findByJobId(jobID);
+	public Iterable<Application> findByJobId(long jobID) {
+		return applicationRepository.findByJobID(jobID);
 	}
+	
 
 	
 

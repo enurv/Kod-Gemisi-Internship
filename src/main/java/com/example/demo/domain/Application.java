@@ -18,22 +18,22 @@ public class Application {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false, updatable = false)
     private long id;
-	@NotEmpty
+	@Column(name = "name", nullable = false)
     @Size(min=2, max=50)
     private String name;
-	@NotEmpty
+	@Column(name = "email", nullable = false)
     @Size(min=2, max=50)
 	private String email;
-	@NotNull
+	@Column(name = "phone", nullable = false)
 	private int phone;
-	@NotEmpty
+	@Column(name = "adress", nullable = false)
 	private String address;
-	@NotEmpty
+	@Column(name = "thoughtsOnJob", nullable = false)
 	private String thoughtsOnJob;
-	@NotEmpty
+	@Column(name = "resume", nullable = false)
 	private String resume;
-	@NotNull
-	private long jobID;
+	@Column(name = "jobID", nullable = false)
+	private Long jobID;
 	
 	public Application() {
 		
@@ -75,14 +75,14 @@ public class Application {
 	public void setResume(String resume) {
 		this.resume = resume;
 	}
-	public long getJobID() {
+	public Long getJobID() {
 		return jobID;
 	}
-	public void setJobID(long jobID) {
+	public void setJobID(Long jobID) {
 		this.jobID = jobID;
 	}
 	public Application(@NotEmpty @Size(min = 2, max = 50) String name, @NotEmpty @Size(min = 2, max = 50) String email,
-			int phone, @NotEmpty String address, @NotEmpty String thoughtsOnJob, @NotEmpty String resume, long jobID) {
+			int phone, @NotEmpty String address, @NotEmpty String thoughtsOnJob, @NotEmpty String resume, Long jobID) {
 		super();
 		this.name = name;
 		this.email = email;

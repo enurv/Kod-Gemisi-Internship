@@ -81,5 +81,8 @@ public class ApplicationFormDTO {
 		this.jobID = jobID;
 	}
 	
+	public ApplicationFormDTO() {
+		
+	}
 	
 }

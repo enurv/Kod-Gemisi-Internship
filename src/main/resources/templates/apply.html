@@ -20,7 +20,7 @@
     </tr>
     <tr th:each="job : ${jobs}">
 		<td>
-			<form th:action="@{/jobs/} + ${job.id}" th:method="post">
+			<form th:action="@{/apply/} + ${job.id}" th:method="post">
 				<button type="submit">Apply</button>
 			</form>
 		</td>

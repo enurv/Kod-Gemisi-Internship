@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>Apply to a Job</title>
+</head>
+<body>
+    <nav role="navigation">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/apply">Apply</a></li>
+        </ul>
+    </nav>
+    
+    <form th:action="@{/submit}" th:object="${applicationForm}" th:method="post">
+        <table>
+            <tr>
+                <td>Name:</td>
+                <td><input type="text" th:field="*{name}" /></td>
+                <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}">error</td>
+            </tr>
+			<tr>
+                <td>E-mail:</td>
+                <td><input type="text" th:field="*{email}" /></td>
+                <td th:if="${#fields.hasErrors('email')}" th:errors="*{email}">error</td>
+            </tr>
+            <tr>
+                <td>Phone:</td>
+                <td><input type="text" th:field="*{phone}" /></td>
+                <td th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}">error</td>
+            </tr>
+			<tr>
+                <td>Address:</td>
+                <td><input type="text" th:field="*{address}" /></td>
+                <td th:if="${#fields.hasErrors('address')}" th:errors="*{address}">error</td>
+            </tr>
+            <tr>
+                <td>Your Thoughts on Job:</td>
+                <td><input type="text" th:field="*{thoughtsOnJob}" /></td>
+                <td th:if="${#fields.hasErrors('thoughtsOnJob')}" th:errors="*{thoughtsOnJob}">error</td>
+            </tr>
+            <tr>
+                <td>Resume:</td>
+                <td><input type="text" th:field="*{resume}" /></td>
+                <td th:if="${#fields.hasErrors('resume')}" th:errors="*{resume}">error</td>
+            </tr>
+            
+        
+            <tr>
+                <td><button type="submit">Apply</button></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

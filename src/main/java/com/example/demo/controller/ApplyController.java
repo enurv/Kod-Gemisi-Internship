@@ -11,41 +11,50 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.example.demo.domain.ApplicationFormDTO;
 import com.example.demo.domain.JobAddFormDTO;
+import com.example.demo.service.ApplicationService;
 import com.example.demo.service.JobService;
 
 @Controller
 public class ApplyController {
+	private final ApplicationService applicationService;
 	private final JobService jobService;
     
     
     @Autowired
-    public ApplyController(JobService jobService) {
+    public ApplyController(ApplicationService applicationService, JobService jobService) {
         this.jobService = jobService;
+		this.applicationService = applicationService;
         
     }
-    /*
-	@RequestMapping("/jobs/add")
-	    public ModelAndView jobAddPage() {
-	        return new ModelAndView("addJob", "jobForm", new JobAddFormDTO());
+    
+	@RequestMapping(value = "/apply/{jobID}", method = RequestMethod.POST)
+	    public ModelAndView applicationPage(@PathVariable("jobID") Long jobID) {
+			ApplicationFormDTO form = new ApplicationFormDTO();
+			form.setJobID(jobID);
+			return new ModelAndView("application", "applicationForm", form);
+			
 	    }
 	
-	@RequestMapping(value = "/jobs", method = RequestMethod.POST)
-	    public String handleJobAdd(@Valid @ModelAttribute("jobForm") JobAddFormDTO form, BindingResult bindingResult) {
+	@RequestMapping(value = "/submit", method = RequestMethod.POST)
+	    public String handleAdd(@Valid @ModelAttribute("applicationForm") ApplicationFormDTO form, BindingResult bindingResult) {
 	        if (bindingResult.hasErrors())
-	            return "addJob";
+	            return "application";
 	        
-	        jobService.addJob(form);
-	        return "redirect:/jobs";
-	    }*/
+	        applicationService.addApplication(form);
+	        return "redirect:/apply";
+	    }
+	
 	
 	@RequestMapping("/apply")
 	public ModelAndView getJobssPage() {
 	    return new ModelAndView("apply", "jobs", jobService.getJobs());
 	}
+	
 	/*
-	@RequestMapping(value = "/jobs/{id}", method = RequestMethod.POST)
-	public String handleJobDelete(@PathVariable("id") Long id) {
+	@RequestMapping(value = "/apply/{id}", method = RequestMethod.POST)
+	public String handle(@PathVariable("id") Long id) {
 	    jobService.deleteJobById(id);
 	    return "redirect:/jobs";
 	}
