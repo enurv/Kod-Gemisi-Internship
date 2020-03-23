@@ -21,7 +21,7 @@ public class ApplicationFormDTO {
 	@NotEmpty
 	private String resume;
 	@NotNull
-	private Long jobID;
+	private static Long jobID;
 	
 	
 	public ApplicationFormDTO(@NotEmpty @Size(min = 2, max = 50) String name,

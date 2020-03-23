@@ -33,7 +33,7 @@ public class Application {
 	private String thoughtsOnJob;
 	@Column(name = "resume", nullable = false)
 	private String resume;
-	@Column(name = "jobID", nullable = false)
+	@Column(name = "jobID", nullable = true)
 	private Long jobID;
 	
 	public Application() {
