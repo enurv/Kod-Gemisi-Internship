@@ -13,17 +13,20 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.demo.domain.JobAddFormDTO;
+import com.example.demo.service.ApplicationService;
 import com.example.demo.service.JobService;
 import com.example.demo.service.UserService;
 
 @Controller
 public class JobController {
 	private final JobService jobService;
+	private final ApplicationService applicationService;
     
     
     @Autowired
-    public JobController(JobService jobService) {
+    public JobController(JobService jobService, ApplicationService applicationService) {
         this.jobService = jobService;
+        this.applicationService = applicationService;
         
     }
     
@@ -46,9 +49,14 @@ public class JobController {
 	    return new ModelAndView("jobs", "jobs", jobService.getJobs());
 	}
 	
-	@RequestMapping(value = "/jobs/{id}", method = RequestMethod.POST)
+	@RequestMapping(value = "/jobs/{id}", method = RequestMethod.DELETE)
 	public String handleJobDelete(@PathVariable("id") Long id) {
 	    jobService.deleteJobById(id);
 	    return "redirect:/jobs";
+	}
+	
+	@RequestMapping(value = "/applicationList/{jobID}", method = RequestMethod.POST)
+	public ModelAndView getApplicationList(@PathVariable("jobID") Long jobID) {
+	    return new ModelAndView("applicationList", "applications", applicationService.findByJobID(jobID));
 	}
 }

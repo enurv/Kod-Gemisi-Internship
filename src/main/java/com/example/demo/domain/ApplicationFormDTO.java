@@ -21,12 +21,12 @@ public class ApplicationFormDTO {
 	@NotEmpty
 	private String resume;
 	@NotNull
-	private long jobID;
+	private Long jobID;
 	
 	
 	public ApplicationFormDTO(@NotEmpty @Size(min = 2, max = 50) String name,
 			@NotEmpty @Size(min = 2, max = 50) String email, int phone, @NotEmpty String address,
-			@NotEmpty String thoughtsOnJob, @NotEmpty String resume, long jobID) {
+			@NotEmpty String thoughtsOnJob, @NotEmpty String resume, Long jobID) {
 		super();
 		this.name = name;
 		this.email = email;
@@ -74,10 +74,10 @@ public class ApplicationFormDTO {
 	public void setResume(String resume) {
 		this.resume = resume;
 	}
-	public long getJobID() {
+	public Long getJobID() {
 		return jobID;
 	}
-	public void setJobID(long jobID) {
+	public void setJobID(Long jobID) {
 		this.jobID = jobID;
 	}
 	

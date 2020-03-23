@@ -23,13 +23,20 @@ public class ApplicationServiceImpl implements ApplicationService {
 	public void addApplication(ApplicationFormDTO form) {
 		Application application = new Application(form.getName(), form.getEmail(), form.getPhone(), form.getAddress(), form.getThoughtsOnJob(), form.getResume(), form.getJobID());
 		applicationRepository.save(application);
+		//System.out.println(application.toString());
 		
 	}
 
 
 	@Override
-	public Iterable<Application> findByJobId(long jobID) {
-		return applicationRepository.findByJobID(jobID);
+	public Iterable<Application> findByJobID(Long jobID) {
+		return applicationRepository.findByjobID(jobID);
+	}
+
+
+	@Override
+	public Iterable<Application> getApplications() {
+		return applicationRepository.findAll();
 	}
 	
 

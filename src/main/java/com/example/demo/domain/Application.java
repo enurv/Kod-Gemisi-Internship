@@ -13,6 +13,7 @@ import javax.validation.constraints.Size;
 import com.sun.istack.NotNull;
 
 @Entity
+@Table(name = "Applications")
 public class Application {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -103,7 +104,7 @@ public class Application {
                 ", Adress='" + address + '\'' +
                 ", Thoughts On Job ='" + thoughtsOnJob + '\'' +
                 ", Resume='" + resume + '\'' +
-                ", Job ID='" + jobID + '\'' +
+                ", JobID='" + jobID + '\'' +
                 '}';
     }
 }

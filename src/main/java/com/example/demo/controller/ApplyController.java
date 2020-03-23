@@ -32,7 +32,7 @@ public class ApplyController {
 	@RequestMapping(value = "/apply/{jobID}", method = RequestMethod.POST)
 	    public ModelAndView applicationPage(@PathVariable("jobID") Long jobID) {
 			ApplicationFormDTO form = new ApplicationFormDTO();
-			form.setJobID(jobID);
+			//form.setJobID(jobID);
 			return new ModelAndView("application", "applicationForm", form);
 			
 	    }
@@ -52,11 +52,5 @@ public class ApplyController {
 	    return new ModelAndView("apply", "jobs", jobService.getJobs());
 	}
 	
-	/*
-	@RequestMapping(value = "/apply/{id}", method = RequestMethod.POST)
-	public String handle(@PathVariable("id") Long id) {
-	    jobService.deleteJobById(id);
-	    return "redirect:/jobs";
-	}
-	*/
+	
 }

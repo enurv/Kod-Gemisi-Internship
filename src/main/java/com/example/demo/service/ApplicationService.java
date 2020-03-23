@@ -5,5 +5,7 @@ import com.example.demo.domain.ApplicationFormDTO;
 
 public interface ApplicationService {
 	void addApplication(ApplicationFormDTO form);
-	Iterable<Application> findByJobId(long jobID);
+	Iterable<Application> findByJobID(Long jobID);
+	Iterable<Application> getApplications();
+	
 }

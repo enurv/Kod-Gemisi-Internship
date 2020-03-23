@@ -6,19 +6,24 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;
 
+import com.example.demo.domain.Application;
 import com.example.demo.domain.Job;
 import com.example.demo.domain.JobAddFormDTO;
+import com.example.demo.repository.ApplicationRepositoryDAO;
 import com.example.demo.repository.JobRepositoryDAO;
 import com.example.demo.service.UserService;
 
 @Service
 public class JobServiceImpl implements JobService{
 	private final JobRepositoryDAO jobRepository;
+	private final ApplicationRepositoryDAO applicationRepository;
 	
 	
 	@Autowired
-    public JobServiceImpl(JobRepositoryDAO jobRepository) {
+    public JobServiceImpl(JobRepositoryDAO jobRepository, ApplicationRepositoryDAO applicationRepository) {
         this.jobRepository = jobRepository;
+        this.applicationRepository = applicationRepository;
+        
     }
 	
 	@Override
@@ -43,6 +48,11 @@ public class JobServiceImpl implements JobService{
 		jobRepository.deleteById(id);
 		
 		
+	}
+
+	@Override
+	public List<Application> seeApplicationsByJobID(Long ID) {
+		return (List<Application>) applicationRepository.findByjobID(ID);
 	}
 
 }

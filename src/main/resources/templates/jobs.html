@@ -29,6 +29,11 @@
         <td th:text="${job.jobDescription}">Description</td>
 		<td th:text="${job.numHire}">Number of People to Get Hired</td>
         <td th:text="${job.lastApplicationDate}">Last Application Date</td>
+        <td>
+			<form th:action="@{/applicationList/} + ${job.id}" th:method="post">
+				<button type="submit">See applications</button>
+			</form>
+		</td>
     </tr>
 </table>
 </body>
