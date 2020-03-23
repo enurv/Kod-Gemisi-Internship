@@ -1,7 +1,7 @@
 # Kod-Germisi-Internship
 Simple HR-Application I am building as an application assignment to Kod Gemisi Internship Program.
 
-Since I started making it as a complete beginner, I list some of the great resources that helped me through the process.
+Since I started building this project as a complete beginner, I've listed some of the great resources that helped me through the process.
 
   - [Spring Boot Nedir?](https://medium.com/@furkanbegen/spring-boot-nedir-4cc3f41eb7de)
   - [Spring Boot ile Örnek Web uygulaması](https://medium.com/kodgemisi/spring-boot-ile-%C3%B6rnek-web-uygulamas%C4%B1-914c94c9099f)
